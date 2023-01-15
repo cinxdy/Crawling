@@ -1,19 +1,15 @@
-from inspect import getfile
 import os
-import re
 from urllib import request
 from urllib.error import HTTPError
-from bs4 import BeautifulSoup
 import requests
 import json
 
-overlap = []
 url_list = "https://seoulboard.seoul.go.kr/front/bbs.json?bbsNo=163&schTy=&schData=&curPage="
 url_page = "https://seoulboard.seoul.go.kr/humanframe/Json/view/163_"
 # https://seoulboard.seoul.go.kr/comm/getFile?srvcId=BBSTY1&upperNo=378438&fileTy=ATTACH&fileNo=1&bbsNo=163
 
 def get_download(url, fname, directory):
-    if not os.path.isdir(directory): #폴더가 존재하지 않는다면 폴더 생성
+    if not os.path.isdir(directory):
         os.mkdir(directory)
 
     try:
